@@ -1,0 +1,20 @@
+USE [TableroControlProyectos]
+GO
+
+INSERT INTO [dbo].[controlProyecto]
+           ([codProyecto]
+           ,[nombre]
+           ,[tipo]
+           ,[liderTecnico]
+           ,[gestorTransicion]
+           ,[etapaActual]
+           ,[etapaTransicion]
+           ,[definicionModeloServicio]
+           ,[revisionDocumentoDiseno]
+           ,[revisionArquitecturaServicio]
+           ,[certificacionPasoProduccion]
+           ,[cierreEstabilizacion]
+           ,[certiFuncYtec])
+     VALUES
+           ('Proyecto',	'Herramienta ecoEOR', 'Convenio', 	'Andres F. Garcia',	'Liliana Melgarejo',	'Diseño',	'Definición del modelo de servicio jul./18. Andres García salió a vacaciones.',
+						convert(date,'2018/06/12'), convert(date,'18/03/2020'), convert(date,'18/07/2020'), convert(date,'18/07/2018'), convert(date,'18/07/2020'), convert(date,'18/07/2020');

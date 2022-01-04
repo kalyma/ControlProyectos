@@ -1,0 +1,156 @@
+﻿@model ControlProyectos.Models.ViewModels.TablaViewModel
+@{
+    ViewBag.Title = "Editar";
+}
+
+<h2>Editar Registro Tablero de Control @ViewBag.Title</h2>
+
+<div class="form-row">
+    <div class="form-group col-md-3">
+        <br />
+    </div>
+</div>
+
+
+<div class="row">
+    @*style="border: 1px solid black"*@
+    <div class="form-group col-md-12">
+        <br /><br /><br />
+    </div>
+</div>
+@if (ViewData["successMessage"] != null)
+{
+    <div id="successMessage" style="color:red;font-size: large;">
+        @ViewData["successMessage"]
+    </div>
+}
+
+<div style="color:#5cb85c;font-size: large">Se esta editando un registro...</div>
+@using (Html.BeginForm("Editar", "ControlProyecto", FormMethod.Post))
+{
+    <div class="row" style="color:green;font-size: medium;">
+        <div class="col-md-12" style="font-size:14px">
+            @Html.HiddenFor(d => d.IdProyecto)
+            <div class="col-md-6">
+                @Html.LabelFor(d => d.CodProyecto)
+                @Html.TextBoxFor(d => d.CodProyecto, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.CodProyecto, null, new { @class = "alert danger red" })
+            </div>
+            <div class="col-md-6">
+                @Html.LabelFor(d => d.Nombre)
+                @Html.TextBoxFor(d => d.Nombre, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Nombre, null, new { @class = "alert danger red" })
+            </div>
+            <div class="col-md-6">
+                @Html.LabelFor(d => d.Tipo)
+                @Html.TextBoxFor(d => d.Tipo, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.Tipo, null, new { @class = "alert danger red" })
+            </div>
+            <div class="col-md-6">
+                @Html.LabelFor(d => d.LiderTecnico)
+                @Html.TextBoxFor(d => d.LiderTecnico, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.LiderTecnico, null, new { @class = "alert danger red" })
+            </div>
+            <div class="col-md-6">
+                @Html.LabelFor(d => d.GestorTransicion)
+                @Html.TextBoxFor(d => d.GestorTransicion, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.GestorTransicion, null, new { @class = "alert danger red" })
+            </div>
+            <div class="col-md-6">
+                @Html.LabelFor(d => d.EtapaActual)
+                @Html.TextBoxFor(d => d.EtapaActual, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.EtapaActual, null, new { @class = "alert danger red" })
+            </div>
+            <div class="col-md-12">
+                @Html.LabelFor(d => d.EtapaTransicion)
+                @Html.TextBoxFor(d => d.EtapaTransicion, "", new { @class = "form-control" })
+                @Html.ValidationMessageFor(d => d.EtapaTransicion, null, new { @class = "alert danger red" })
+            </div>
+        </div>
+
+        <div class="col-md-12" style="font-size:14px">
+            <br />
+            <div class="col-md-6">
+                <div class="col-md-7">
+                    @Html.LabelFor(d => d.DefinicionModeloServicio)
+                </div>
+                <div class="col-md-0" style="color:black">
+                    @Html.EditorFor(d => d.DefinicionModeloServicio, "", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(d => d.DefinicionModeloServicio, null, new { @class = "alert danger red" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="col-md-7">
+                    @Html.LabelFor(d => d.RevisionDocumentoDiseno)
+                </div>
+                <div class="col-md-0" style="color:black">
+                    @Html.EditorFor(d => d.RevisionDocumentoDiseno, "", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(d => d.RevisionDocumentoDiseno, null, new { @class = "alert danger red" })
+                </div>
+            </div>
+            <div>&nbsp;</div>
+            <div class="col-md-6">
+                <div class="col-md-7">
+                    @Html.LabelFor(d => d.RevisionArquitecturaServicio)
+                </div>
+                <div class="col-md-0" style="color:black">
+                    @Html.EditorFor(d => d.RevisionArquitecturaServicio, "", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(d => d.RevisionArquitecturaServicio, null, new { @class = "alert danger red" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="col-md-7">
+                    @Html.LabelFor(d => d.CertifFuncYtec)
+                </div>
+                <div class="col-md-0" style="color:black">
+                    @Html.EditorFor(d => d.CertifFuncYtec, "", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(d => d.CertifFuncYtec, null, new { @class = "alert danger red" })
+                </div>
+            </div>
+            <div>&nbsp;</div>
+            <div class="col-md-6">
+                <div class="col-md-7">
+                    @Html.LabelFor(d => d.CertificacionPasoProduccion)
+                </div>
+                <div class="col-md-0" style="color:black">
+                    @Html.EditorFor(d => d.CertificacionPasoProduccion, "", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(d => d.CertificacionPasoProduccion, null, new { @class = "alert danger red" })
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="col-md-7">
+                    @Html.LabelFor(d => d.CierreEstabilizacion)
+                </div>
+                <div class="col-md-0" style="color:black">
+                    @Html.EditorFor(d => d.CierreEstabilizacion, "", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(d => d.CierreEstabilizacion, null, new { @class = "alert danger red" })
+                </div>
+            </div>
+        </div>
+        <div>&nbsp;</div>
+        <br />
+        <div class="col-md-6">
+            <br />
+            <div class="col-md-3">
+                <input type="submit" name="name" value="Guardar" class="btn btn-success" style="background-color: darkgreen;" />
+            </div>
+            <div class="col-md-1">
+                <a href="~/ControlProyecto/Enviar" class="btn btn-success col-2 " id="inputProyecto" style="background-color: darkgreen;">Cancelar</a>
+            </div>
+        </div>
+
+
+    </div>
+}
+
+
+@*@if ('@ViewBag.successMessage' == "Error")
+    {
+    $('#Mensaje').show();
+    }
+    else
+    {
+    $('#Mensaje').hide();
+    }*@
+
+

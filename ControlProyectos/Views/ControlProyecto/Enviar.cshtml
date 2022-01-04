@@ -1,0 +1,223 @@
+﻿@model List<ControlProyectos.Models.ViewModels.TablaViewModel>
+    @{
+    ViewBag.Title = "Control Proyectos";
+    }
+
+    <h2>@ViewBag.Title</h2>
+
+    <form action="/" method="post">
+        <div class="form-row">
+
+            <div class="form-group col-md-3" style="color:darkblue">
+                <label for="inputProyecto">Id Proyecto</label>
+                <input type="text" class="form-control input-sm" id="inputProyecto">
+            </div>
+
+            <div class="form-group col-md-3" style="color:darkgreen">
+                <label for="inputState2">Lider Técnico</label>
+
+                <select type="text" id="inputState2" name="liderTecnico" class="form-control input-sm">
+                    @foreach (var oElemento in Model)
+                    {
+                    <option value="{@oElemento.LiderTecnico.Distinct()}">@oElemento.LiderTecnico</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group col-md-4" style="color:darkgreen">
+                <label for="inputZip2">Gestor Transición</label>
+                @*<input type="text" class="form-control" id="inputZip">*@
+
+                <select type="text" id="inputZip2" name="gestorTransicion" class="form-control input-sm">
+                    @foreach (var oElemento in Model)
+                    {
+                    <option value="{@oElemento.GestorTransicion.Distinct()}">@oElemento.GestorTransicion</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group col-md-1">
+                <label for="inputBusqueda2"></label>
+                <a href="~/ControlProyecto/Nuevo" class="btn btn-primary col-2 " id="inputBusqueda">Nuevo</a>
+                <!--<button id="inputBusqueda2" type="submit" class="btn btn-primary ">Registro</button>-->
+            </div>
+
+            <div class="form-group col-md-1">
+                <label for="inputBusqueda"></label>
+                @*<button id="inputBusqueda" type="submit" class="btn btn-primary ">Enviar</button>*@
+                <a href="~/ControlProyecto/Enviar" class="btn btn-primary col-2 " id="inputBusqueda" value="inputProyecto">Enviar</a>
+            </div>
+
+            <div class="form-group col-md-1">
+                <label for="inputBusqueda"></label>
+                @*<button id="inputBusqueda" type="submit" class="btn btn-primary ">Enviar</button>*@
+                <a href="~/ControlProyecto/Salir" class="btn btn-primary col-2 " id="inputBusqueda">Salir</a>
+            </div>
+
+        </div>
+    </form>
+
+    <div class="row">
+        <div class="col-md-12" style="border:1px solid black;">
+            <table class="table table-condensed table-responsive table-hover display" id="proyectTabla">
+                <thead>
+                    <tr style="border:solid;">
+                        <th style="background-color:lightgray">ID NOMBRE TIPO PROYECTO</th>
+                        <th style="background-color:lightgray">LIDER TÉCNICO</th>
+                        <th style="background-color:lightgray">GESTOR TRANSICIÓN</th>
+                        <th style="background-color:lightgray">ETAPA ACTUAL PROYECTO INICIATIVA</th>
+                        <th style="background-color:lightgray">ETAPA TRANSICIÓN</th>
+                        <th style="background-color:yellow">DEFINICIÓN MODELO SERVICIO</th>
+                        <th style="background-color:lightyellow">REVISIÓN DOCUMENTO DE DISEÑO</th>
+                        <th style="background-color:lemonchiffon">REVISIÓN ARQUITECTURA DE SERVICIO</th>
+                        <th style="background-color:palegoldenrod">CERTIFICACIÓN FUNCIONAL Y TÉCNICA</th>
+                        <th style="background-color:moccasin">CERTIFICACIÓN PASO A PRODUCCIÓN</th>
+                        <th style="background-color:orange">CIERRE ESTABILIZACIÓN</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var oElemento in Model)
+                    {
+                    <tr>
+                        <td>
+                            @oElemento.IdProyecto <br />
+                            <b> @oElemento.Nombre</b> <br />
+                            @oElemento.Tipo <br />
+                            <a class="" href="~/ControlProyecto/Editar/@oElemento.IdProyecto">Editar</a>
+                            <a class="" href="~/ControlProyecto/Eliminar/@oElemento.IdProyecto">Eliminar</a>
+                        </td>
+                        @*
+                        <td>@oElemento.Nombre</td>
+                        <td>@oElemento.Tipo</td>*@
+                        <td>@oElemento.LiderTecnico</td>
+                        <td>@oElemento.GestorTransicion</td>
+                        <td>@oElemento.EtapaActual</td>
+                        <td>@oElemento.EtapaTransicion</td>
+                        <td>
+                            @oElemento.DefinicionModeloServicio<br />
+                        </td>
+                        <td>
+                            @oElemento.RevisionDocumentoDiseno
+                        </td>
+
+                        <td>
+                            @*<b>RevisionArquitecturaServicio</b><br />*@
+                            @oElemento.RevisionArquitecturaServicio
+                        </td>
+
+                        <td>
+                            @*<b>CertificacionFuncional_y_Tecnica</b><br />*@
+                            @oElemento.CertifFuncYtec
+                        </td>
+
+                        <td>
+                            @*<b>CertificacionPasoProduccion</b><br />*@
+                            @oElemento.CertificacionPasoProduccion<br />
+
+                            @oElemento.TiempoAprobacionTecnica dias transcurridos desde Definicion Modelo
+                        </td>
+                        <td>
+                            @oElemento.CierreEstabilizacion<br />
+                            @oElemento.TiempoCierreEstabilizacion días transcurridos desde Certificado Paso Produccion
+                        </td>
+                    </tr>
+                    }
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th><b>IdProyecto</b></th>
+                        @*
+                        <th>Nombre</th>
+                        <th>Tipo</th>*@
+                        <th style="background-color:lightgray">Lider Técnico</th>
+                        <th style="background-color:lightgray">Gestor Transición</th>
+                        <th style="background-color:lightgray">Etapa Actual</th>
+                        <th style="background-color:lightgray">Etapa Transición</th>
+                        <th style="background-color:yellow">Definición Modelo de Servicio</th>
+                        <th style="background-color:lightyellow">Revisión Documento Diseño</th>
+                        <th style="background-color:lemonchiffon">Revision Arquitectura de Servicio</th>
+                        <th style="background-color:palegoldenrod">Certificacion Funcional y técnica</th>
+                        <th style="background-color:moccasin">Certificación Paso Producción</th>
+                        <th style="background-color:orange">Cierre Estabilización</th>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+    </div>
+
+    @*para archivos locales
+    <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css" />
+    <script type="text/javascript" src="DataTables/datatables.min.js"></script>*@
+
+
+    @*<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/b-1.6.1/b-html5-1.6.1/cr-1.5.2/kt-2.5.1/r-2.2.3/rr-1.2.6/sc-2.0.1/sl-1.3.1/datatables.min.css" />*@
+    <link href="~/DataTables/datatables.css" rel="stylesheet" />
+    <link href="~/DataTables/Buttons-1.6.1/css/buttons.dataTables.min.css" rel="stylesheet" />
+    @section scripts{
+    <link href="~/DataTables/datatables.css" rel="stylesheet" />
+    <script src="~/DataTables/datatables.js"></script>
+    <script src="~/DataTables/Buttons-1.6.1/js/dataTables.buttons.min.js"></script>
+
+    @*<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/b-1.6.1/b-html5-1.6.1/cr-1.5.2/kt-2.5.1/r-2.2.3/rr-1.2.6/sc-2.0.1/sl-1.3.1/datatables.min.css" />
+    <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/b-1.6.1/b-html5-1.6.1/cr-1.5.2/kt-2.5.1/r-2.2.3/rr-1.2.6/sc-2.0.1/sl-1.3.1/datatables.min.js"></script>*@
+
+    <script>
+        $(document).ready(function () {
+
+            $('#proyectTabla').DataTable({
+                    dom: 'Bfrtip',
+                    buttons: [
+                        'copyHtml5',
+                        'excelHtml5',
+                        'csvHtml5',
+                        'pdfHtml5',
+                        {
+                            extend: 'csv',
+                            text: 'Export csv',
+                            charset: 'utf-8',
+                            extension: '.csv',
+                            //fieldSeparator: ';',
+                            //fieldBoundary: '',
+                            filename: 'export',
+                            bom: true
+                        }
+                ],
+                language:
+                {
+	                "sProcessing":     "Procesando...",
+                    "sLengthMenu":     "Mostrar _MENU_ registros",
+                    "sZeroRecords":    "No se encontraron resultados",
+                    "sEmptyTable":     "Ningún dato disponible en esta tabla =(",
+                    "sInfo":           "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty":      "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered":   "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix":    "",
+                    "sSearch":         "Buscar:",
+                    "sUrl":            "",
+                    "sInfoThousands":  ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst":    "Primero",
+                        "sLast":     "Último",
+                        "sNext":     "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending":  ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    },
+                    "buttons": {
+                        "copy": "Copiar",
+                        "colvis": "Visibilidad"
+                    }
+                }
+
+                }
+
+            );
+
+        });
+
+    </script>
+
+    }

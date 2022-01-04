@@ -1,0 +1,4 @@
+﻿[*.cs]
+
+# CS2001: No se encontró el archivo de origen 'D:\FR\Fuentes\Pruebas\Tablero de control 2\ControlProyectos\Models\controlProyectoS.cs'.
+dotnet_diagnostic.CS2001.severity = none

@@ -1,0 +1,20 @@
+USE [TableroControlProyectos]
+GO
+
+INSERT INTO [dbo].[controlProyecto]
+           ([codProyecto]
+           ,[nombre]
+           ,[tipo]
+           ,[liderTecnico]
+           ,[gestorTransicion]
+           ,[etapaActual]
+           ,[etapaTransicion]
+           ,[definicionModeloServicio]
+           ,[revisionDocumentoDiseno]
+           ,[revisionArquitecturaServicio]
+           ,[certificacionPasoProduccion]
+           ,[cierreEstabilizacion]
+           ,[certiFuncYtec])
+     VALUES
+           ('Proyecto',	'Herramienta ecoEOR', 'Convenio', 	'Andres F. Garcia',	'Liliana Melgarejo',	'Diseño',	'Definición del modelo de servicio jul./18. Andres García salió a vacaciones solicito esperar para citar los demás espacios de arquitectura del servicio y reuniones con los líderes de proceso mientras regresa.// Se espera el 15 de junio, tener todo listo y en ese momento definir la posible fecha de paso a PRD.',
+						convert(date,'2018/06/12'), 18/07/2018, 18/07/2018, 18/07/2018, 18/07/2018, 18/07/2018);

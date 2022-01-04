@@ -1,0 +1,33 @@
+Buenas tardes Jorge, 
+
+A continuación te relaciono las mejoras al tablero control de proyectos. 
+
+LOGIN.
+1.	Modificar el tamaño del logo de Ecopetrol para que sea más visible.
+2.	Modificar el color del título Tablero control de proyectos por un color más visible.
+3.	Centrar en la pantalla los componentes del login
+4.	Aumentar el tamaño de la letra para los campos registro y contraseña. 
+5.	Modificar los colores del login por un color verde.
+
+Tablero. 
+1.	Modificar los nombres de los botones Buscar filtro y Limpiar filtro por Buscar y Limpiar.
+2.	Poner los botones Buscar y Limpiar alineados y del mismo tamaño.
+3.	Modificar el tamaño del logo de Ecopetrol para que sea más visible.
+4.	Modificar el color del título Tablero control de proyectos por un color más visible.
+5.	Modificar los colores de las columnas inferiores del tablero. 
+6.	Modificar el tamaño de la letra del formulario al realizar el ingreso de un nuevo registro. 
+7.	Realizar validaciones en los campos de fechas al realizar el ingreso de un nuevo registro. 
+8.	Validar la funcionalidad del campo líder del formulario al realizar el ingreso de un nuevo registro.
+9.	Validar la funcionalidad del botón Eliminar. 
+10.	Validar la funcionalidad del botón Buscar ya que al pulsar dos veces el botón me envía al login. 
+11.	Eliminar el botón csv ya que el botón Export csv hace la mismo. 
+
+
+Quedo atenta a cualquier novedad.
+
+
+font-size: x-large;
+    font-weight: lighter;
+    color: white;
+	
+	/html/body/div[1]

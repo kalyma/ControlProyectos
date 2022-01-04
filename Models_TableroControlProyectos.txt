@@ -1,0 +1,115 @@
+
+-- --------------------------------------------------
+-- Entity Designer DDL Script for SQL Server 2005, 2008, 2012 and Azure
+-- --------------------------------------------------
+-- Date Created: 02/25/2020 22:17:02
+-- Generated from EDMX file: D:\FR\Ecopetrol Febrero de 2020\Tablero\repos\repos\ControlProyectos\ControlProyectos\Models\TableroControlProyectos.edmx
+-- --------------------------------------------------
+
+SET QUOTED_IDENTIFIER OFF;
+GO
+USE [TableroControlProyectos];
+GO
+IF SCHEMA_ID(N'dbo') IS NULL EXECUTE(N'CREATE SCHEMA [dbo]');
+GO
+
+-- --------------------------------------------------
+-- Dropping existing FOREIGN KEY constraints
+-- --------------------------------------------------
+
+
+-- --------------------------------------------------
+-- Dropping existing tables
+-- --------------------------------------------------
+
+IF OBJECT_ID(N'[dbo].[controlProyecto]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[controlProyecto];
+GO
+IF OBJECT_ID(N'[dbo].[sysdiagrams]', 'U') IS NOT NULL
+    DROP TABLE [dbo].[sysdiagrams];
+GO
+IF OBJECT_ID(N'[TableroControlProyectosModelStoreContainer].[V_TableroControl]', 'U') IS NOT NULL
+    DROP TABLE [TableroControlProyectosModelStoreContainer].[V_TableroControl];
+GO
+
+-- --------------------------------------------------
+-- Creating all tables
+-- --------------------------------------------------
+
+-- Creating table 'controlProyectoes'
+CREATE TABLE [dbo].[controlProyectoes] (
+    [idProyecto] varchar(50)  NOT NULL,
+    [nombre] varchar(50)  NOT NULL,
+    [tipo] varchar(50)  NOT NULL,
+    [liderTecnico] varchar(50)  NOT NULL,
+    [gestorTransicion] varchar(50)  NOT NULL,
+    [etapaActual] varchar(50)  NOT NULL,
+    [etapaTransicion] varchar(1000)  NULL,
+    [definicionModeloServicio] datetime  NULL,
+    [revisionDocumentoDiseño] datetime  NULL,
+    [revisionArquitecturaServicio] datetime  NULL,
+    [certificacionPasoProduccion] datetime  NULL,
+    [CierreEstabilizacion] datetime  NULL,
+    [CertifFuncYtec] datetime  NULL
+);
+GO
+
+-- Creating table 'sysdiagrams'
+CREATE TABLE [dbo].[sysdiagrams] (
+    [name] nvarchar(128)  NOT NULL,
+    [principal_id] int  NOT NULL,
+    [diagram_id] int IDENTITY(1,1) NOT NULL,
+    [version] int  NULL,
+    [definition] varbinary(max)  NULL
+);
+GO
+
+-- Creating table 'V_TableroControl'
+CREATE TABLE [dbo].[V_TableroControl] (
+    [idProyecto] varchar(50)  NOT NULL,
+    [nombre] varchar(50)  NOT NULL,
+    [tipo] varchar(50)  NOT NULL,
+    [liderTecnico] varchar(50)  NOT NULL,
+    [gestorTransicion] varchar(50)  NOT NULL,
+    [etapaActual] varchar(50)  NOT NULL,
+    [etapaTransicion] varchar(1000)  NULL,
+    [definicionModeloServicio] datetime  NULL,
+    [revisionDocumentoDiseño] datetime  NULL,
+    [revisionArquitecturaServicio] datetime  NULL,
+    [CertifFuncYtec] datetime  NULL,
+    [certificacionPasoProduccion] datetime  NULL,
+    [CierreEstabilizacion] datetime  NULL,
+    [tAprobacionTec] int  NULL,
+    [tCierreEstab] int  NULL
+);
+GO
+
+-- --------------------------------------------------
+-- Creating all PRIMARY KEY constraints
+-- --------------------------------------------------
+
+-- Creating primary key on [idProyecto] in table 'controlProyectoes'
+ALTER TABLE [dbo].[controlProyectoes]
+ADD CONSTRAINT [PK_controlProyectoes]
+    PRIMARY KEY CLUSTERED ([idProyecto] ASC);
+GO
+
+-- Creating primary key on [diagram_id] in table 'sysdiagrams'
+ALTER TABLE [dbo].[sysdiagrams]
+ADD CONSTRAINT [PK_sysdiagrams]
+    PRIMARY KEY CLUSTERED ([diagram_id] ASC);
+GO
+
+-- Creating primary key on [idProyecto], [nombre], [tipo], [liderTecnico], [gestorTransicion], [etapaActual] in table 'V_TableroControl'
+ALTER TABLE [dbo].[V_TableroControl]
+ADD CONSTRAINT [PK_V_TableroControl]
+    PRIMARY KEY CLUSTERED ([idProyecto], [nombre], [tipo], [liderTecnico], [gestorTransicion], [etapaActual] ASC);
+GO
+
+-- --------------------------------------------------
+-- Creating all FOREIGN KEY constraints
+-- --------------------------------------------------
+
+-- --------------------------------------------------
+-- Script has ended
+-- --------------------------------------------------

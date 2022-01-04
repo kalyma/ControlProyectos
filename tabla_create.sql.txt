@@ -1,0 +1,33 @@
+USE [TableroControlProyectos]
+GO
+
+/****** Object:  Table [dbo].[controlProyecto]    Script Date: 31/07/2020 8:35:37 a.m. ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[controlProyecto](
+	[idProyecto] [int] IDENTITY(1,1) NOT NULL,
+	[codProyecto] [varchar](50) NOT NULL,
+	[nombre] [varchar](50) NOT NULL,
+	[tipo] [varchar](50) NOT NULL,
+	[liderTecnico] [varchar](50) NOT NULL,
+	[gestorTransicion] [varchar](50) NOT NULL,
+	[etapaActual] [varchar](50) NOT NULL,
+	[etapaTransicion] [varchar](1000) NULL,
+	[definicionModeloServicio] [datetime] NULL,
+	[revisionDocumentoDiseno] [datetime] NULL,
+	[revisionArquitecturaServicio] [datetime] NULL,
+	[certificacionPasoProduccion] [datetime] NULL,
+	[cierreEstabilizacion] [datetime] NULL,
+	[certiFuncYtec] [datetime] NULL,
+ CONSTRAINT [PK_controlProyectoT] PRIMARY KEY CLUSTERED 
+(
+	[idProyecto] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+

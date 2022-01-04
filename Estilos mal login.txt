@@ -1,0 +1,288 @@
+
+
+@<div class="row" style="padding: 20px;width:100%;text-align:center">
+    <div class="form-group col-md-offset-4" style="color: green;  width: 15%;     text-align: center;      margin: 0 25px;">
+
+        using (Html.BeginForm("validarLogin", "ControlProyecto", FormMethod.Post))
+        {
+        Html.AntiForgeryToken()
+        Html.LabelFor(d => d.Id)
+        Html.TextBoxFor(d => d.Id, "", new { class = "form-control" });
+        Html.ValidationMessageFor(d => d.Id, null, new { class = "alert danger red" })
+        <br />
+        Html.LabelFor(d => d.Contrasena)
+        Html.PasswordFor(d => d.Contrasena, new { class = "form-control" })
+        Html.ValidationMessageFor(d => d.Contrasena, null, new { class = "alert danger red" })
+
+        <br /><input type="submit" name="ingresar" value="INGRESO" class="btn btn-success btn-block" style="color: white; width: 50%;text-align:center; " />
+        <!--</formborder:1px solid black;>-->
+        }
+    </div>@
+
+
+
+@*<div class="container" style="color:blue; font-size:large; border:5px solid yellow">
+
+
+        <div class="form-group" style="border:5px solid red">
+            <div class="col-md-6 text-right" style="width:20%;border:5px solid black">
+                @Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label" })
+            </div>
+            <div class="col-md-6 text-right" style="width:20%;border:5px solid black">
+                @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="col-md-12" style="border:5px solid red">
+            <div class="col-md-4 text-right" style="border:5px solid black">
+                @Html.LabelFor(model => model.Id, htmlAttributes: new { @class = "control-label" })
+            </div>
+            <div class="col-md-8 text-right" style="width:20%;border:5px solid black">
+                @Html.EditorFor(model => model.Id, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Id, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-5 text-right">
+                @Html.LabelFor(model => model.Contrasena, htmlAttributes: new { @class = "control-label" })
+            </div>
+            <div class="col-md-7 text-right">
+                @Html.EditorFor(model => model.Contrasena, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Contrasena, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>*@
+
+
+
+
+					.padre{
+
+    position:relative;
+    width:300px;
+    height:300px;
+    left: 0;
+    top: 0;
+    background: rgb(0,0,0,0.5);
+    z-index: 1500;/*Que barbaridad!!*/
+    align-items: center;
+    justify-content: center;
+}
+.hijo{
+
+    position:absolute;
+    width:100%;
+    height:60px;
+    left: 0;
+    bottom: 0;
+    clear:both;
+    background: rgb(240,240,240,0.5);
+    z-index: 1500;/*Que barbaridad!!*/
+    padding:10px;
+}
+
+
+                            <div class="form-row">
+                                <div class="form-group col-md-3" style="width: 50%;">
+                                    width: 50%;
+                                    <br />
+                                </div>
+                            </div>
+
+
+                            <div class="form-row">
+                                <div class="form-group col-md-3" style="width: 50%;">
+                                    <br />
+                                    style="width: 50%;"
+                                </div>
+                            </div>
+							
+						width:50%;	
+            <style type="text/css">
+                    body {
+                        /*color: purple;
+                background-color: #d8da3d*/
+                        font-family: Georgia, "Times New Roman", Times, serif;
+                        color: purple;
+                        background-color: #d8da3d
+                    }
+
+                    h1 {
+                        font-family: Helvetica, Geneva, Arial, SunSans-Regular, sans-serif
+                    }
+
+                    .container1.contenedor_tabla {
+                        display: table;
+                    }
+
+                    .container1.contenedor_fila {
+                        display: table-row;
+                    }
+
+                    .contenedor_columna {
+                        display: table-column;
+                    }
+
+                    .padre {
+                        background-color: #fafafa;
+                        margin: 1rem;
+                        padding: 1rem;
+                        border: 2px solid #ccc;
+                        /* IMPORTANTE */
+                        text-align: center;
+                    }
+            </style>
+
+            <div class="container1">
+                <div class="form-group col-md-3">
+                    <div class="contenedor_tabla">
+                        <div class="contenedor_fila">
+                            <div class="contenedor_columna">
+                                Columna1
+                            </div>
+                            <div class="contenedor_columna">
+
+                                @*<label for="txtUsername">Usuario</label>
+                                <input name="txtUsuario" value="" id="txtUsername" type="text" Runat="server" class="form-control" placeholder="usuario" required autofocus />
+
+                                <label for="txtPass">Contraseña</label>
+                                <input name="txtPass" id="txtPass" type="password" Runat="server" TextMode="password" class="form-control" placeholder="contraseña" required autofocus />*@
+
+                                <input type="submit" name="ingresar" value="Ingresar" class="btn btn-primary btn-block" />
+                                <!--</form>-->
+                            </div>
+                            <div class="contenedor_columna">
+                                Columna3
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+ <div class="row" style="width:100%;border-color:black">
+        <div class="col-sm-12" style="border-color:black">
+            este es
+            <button type="button" class="btn btn-primary btn-sm">Small button</button>
+            <button type="button" class="btn btn-primary">Small button</button>
+        </div>
+        </div>
+
+            @*/////*@
+
+            <div class="col-md-12">
+                <div class="form-row">
+
+                    <div class="form-group col-md-3" style="color: darkgreen">
+                        @*<label for="inputState2">Lider Técnico</label>*@
+                        <label id="lblidProyecto">Id Proyecto</label>
+                        <input id="buscar" name="buscar" type="text" />
+                    </div>
+
+                    <div class="form-group col-md-3" style="color:darkgreen">
+                        @*<label for="inputState2">Lider Técnico</label>*@
+                        <label id="lblidProyecto">Buscar Fecha</label>
+                        <input id="buscafecha" name="buscafecha" type="date" />
+                    </div>
+
+                    <div class="form-group col-md-3" style="color:darkgreen">
+                        <input id="buscarboton" name="buscarboton" type="submit" value="Buscar" class="btn btn-success col-2" />
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        <label for="inputBusqueda"></label>
+                        <a href="~/ControlProyecto/Login" class="btn btn-success col-2 " id="inputBusqueda" style="float: right; background-color: darkgreen;">Salir del sistema</a>
+                    </div>
+
+                </div>
+            </div>
+			
+			
+
+                        <div class="form-row">
+                            <div class="form-group col-md-3" style="width: 50%;">
+                                width: 50%;
+                                <button type="button" class="btn btn-primary btn-lg">Large button</button>
+                                <br />
+                            </div>
+                        </div>
+
+
+                        <div class="form-row">
+                            <div class="form-group col-md-3" style="width: 50%;">
+                                <br />
+                                style="width: 50%;"
+                            </div>
+                        </div>
+            @*/////*@
+
+   
+
+            <div class="row">
+                <div class="col-sm-6 col-md-4 col-offset-4">
+                    @*<div>*@
+                    <div>
+                        @*class="account-wall">*@
+
+
+
+                        @using (Html.BeginForm("validarLogin", "ControlProyecto", FormMethod.Post))
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <!-- <form action="" method="post" class="form-sig-in" id="login">-->
+                            @Html.LabelFor(d => d.Id)
+                            @Html.TextBoxFor(d => d.Id, "", new { @class = "form-control" })
+                            @Html.ValidationMessageFor(d => d.Id, null, new { @class = "alert danger red" })
+
+                            @Html.LabelFor(d => d.Contrasena)
+                            @Html.PasswordFor(d => d.Contrasena, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(d => d.Contrasena, null, new { @class = "alert danger red" })
+
+                            @*<label for="txtUsername">Usuario</label>
+                            <input name="txtUsuario" value="" id="txtUsername" type="text" Runat="server" class="form-control" placeholder="usuario" required autofocus />
+
+                            <label for="txtPass">Contraseña</label>
+                            <input name="txtPass" id="txtPass" type="password" Runat="server" TextMode="password" class="form-control" placeholder="contraseña" required autofocus />*@
+
+                            <br /><input type="submit" name="ingresar" value="Ingresar" class="btn btn-primary btn-block" />
+                            <!--</form>-->
+                        }
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    <br />
+                </div>
+            </div>
+
+
+            <div class="padre" style="display: flex; justify-content: center;">
+                <div class="form-group col-md-3">
+
+                    ffhgfgfgf fffjhf gdfdghd
+                    <br />
+                </div>
+                <div class="form-group col-md-3">
+
+                    ffhgfgfgf fffjhf gdfdghd
+                    <br />
+                </div>
+                <div class="form-group col-md-3">
+
+                    ffhgfgfgf fffjhf gdfdghd
+                    <br />
+                </div>
+                <div class="form-group col-md-3">
+
+                    ffhgfgfgf fffjhf gdfdghd
+                    <br />
+                </div>
+            </div>
+

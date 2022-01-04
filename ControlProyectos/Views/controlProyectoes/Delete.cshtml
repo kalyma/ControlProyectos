@@ -1,0 +1,128 @@
+﻿@model ControlProyectos.Models.controlProyecto
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>controlProyecto</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.codProyecto)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.codProyecto)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.liderTecnico)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.liderTecnico)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gestorTransicion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gestorTransicion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.etapaActual)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.etapaActual)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.etapaTransicion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.etapaTransicion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.definicionModeloServicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.definicionModeloServicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.revisionDocumentoDiseno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.revisionDocumentoDiseno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.revisionArquitecturaServicio)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.revisionArquitecturaServicio)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.certificacionPasoProduccion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.certificacionPasoProduccion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.cierreEstabilizacion)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cierreEstabilizacion)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.certiFuncYtec)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.certiFuncYtec)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

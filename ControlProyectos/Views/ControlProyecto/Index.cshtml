@@ -1,0 +1,318 @@
+﻿@model List<ControlProyectos.Models.ViewModels.TablaViewModel>
+@{
+    ViewBag.Title = "Index";
+
+}
+
+<h2>@ViewBag.Title</h2>
+
+
+<style type="text/css">
+    #parent1 {
+        position: static;
+        border: 1px solid blue;
+        width: 300px;
+        height: 100px;
+    }
+</style>
+
+@using (@Html.BeginForm("Index", "ControlProyecto", FormMethod.Post))
+{
+<div class="container" style="text-align:center;border: 1px solid black;">
+    @*border: 1px solid black;*@
+
+    <div class="row">
+        @*style="        border: 1px solid black"font-size:small;style=""*@
+        <div class="form-group col-md-12">
+            <br /><br /><br />
+        </div>
+    </div>
+    <div class="row">
+        @*style="border:1px solid black"*@
+        <div class="form-group col-md-10" style="text-align:left; color:#5cb85c">
+            BIENVENIDO @ViewBag.UsuarioConectado
+            <br />
+        </div>
+
+
+
+
+        <div class="form-group col-md-2">
+            @*style="border:1px solid black"*@
+            <label for="inputSalir"></label>
+            <a href="~/ControlProyecto/Login" class="btn btn-success col-2 " id="inputSalir" style="float: right; background-color: darkgreen;">Salir-></a>
+        </div>
+    </div>
+    <div class="form-group col-md-12" style="text-align:center;vertical-align:bottom;font-size:large;color:white;border: 1px solid black;background-color:green">
+        OPCIONES DE BÚSQUEDA
+        <br />
+    </div>
+
+    <div class="row" style="color:green;font-size: medium;">
+        <div class="col-md-12" style="font-size:14px">
+            <div class="col-md-4" style="color:darkgreen;">
+                @*border:1px solid black*@
+                <label id="buscar">Buscar por código de proyecto</label>
+                <input id="buscar" name="buscar" type="text" />&nbsp;
+            </div>
+            <div class="col-md-4" style="color: darkgreen">
+                @*;border: 1px solid black#5cb85c*@
+                @*<label for="inputState2">Lider Técnico</label>*@
+                <label id="lblidProyecto">Fecha Definición Módelo de Servicio</label>
+                <input id="buscafecha" name="buscafecha" type="date" style="color:black" />
+            </div>
+
+            <div class="col-md-4" style="color: darkgreen">
+                @*;border: 1px solid black*@
+                @*<label for="inputState2">Lider Técnico</label>border: 1px solid black*@
+                <label id="lblidProyecto">Fecha Certificación Funcional y Técnica</label>
+                <input id="buscafecha1" name="buscafecha1" type="date" style="color:black" />
+            </div>
+            <div>&nbsp;</div>
+            <div class="col-md-4" style="color:darkgreen">
+                @*;border: 1px solid blackstyle="border: 1px solid black"*@
+            <label for="liderTecnico">Seleccione el Lider Técnico</label>
+            <select type="text" id="liderTecnico" name="liderTecnico" class="form-control input-sm">
+                <option value=""></option>
+                @foreach (var oElemento in Model.Select(x => x.LiderTecnico).Distinct())
+                {
+                    <option value="{@oElemento}">@oElemento</option>
+                }
+            </select>
+        </div>
+        <div class="col-md-4" style="color:darkgreen">
+            @*;border: 1px solid black*@
+                <label for="gestorTransicion">Seleccione el Gestor de Transición</label>
+                <select type="text" id="gestorTransicion" name="gestorTransicion" class="form-control input-sm">
+                    <option value=""></option>
+
+                    @foreach (var oElemento in Model.Select(x => x.GestorTransicion).Distinct())
+                    {
+                        <option value="{@oElemento}">@oElemento</option>
+                    }
+                </select>
+            </div>
+            <br />
+            <div class="col-md-4" >
+                <input id="inputBusqueda" name="inputBusqueda" type="submit" value="Buscar" class="btn btn-success col-2" style="background-color: darkgreen;" />
+                &nbsp;
+                <a href="~/ControlProyecto/Enviar" class="btn btn-success col-2 " id="inputProyecto" style="background-color: darkgreen;">Limpiar</a>
+            </div>
+
+            <br />
+
+        </div>
+    </div>
+
+
+    <br />
+
+    <br />
+</div>
+}
+
+@*Cuadro de prueba*@
+
+<div class="col-md-12">
+    @*style="border:1px solid black"*@
+    <div class="form-row">
+        @*style="border:1px solid black"*@
+        <br />
+        <div class="form-group col-md-3">
+            @*style="border:1px solid black" style="border:1px solid black"*@
+            <label for="inputBusqueda2"></label>
+            <a href="~/ControlProyecto/Nuevo" class="btn btn-success col-2 " id="inputBusqueda">Nuevo Registro</a>@*style="background-color: darkgreen"*@
+        </div>
+
+    </div>
+</div>
+<br />
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table table-condensed table-responsive table-hover display" id="proyectTabla">
+            <thead>
+                <tr style="border:solid;">
+                    <th style="background-color:lightgray">ID NOMBRE TIPO PROYECTO</th>
+                    <th style="background-color:darkgrey">LIDER TÉCNICO</th>
+                    <th style="background-color:darkgrey">GESTOR TRANSICIÓN</th>
+                    <th style="background-color:darkgrey">ETAPA ACTUAL PROYECTO INICIATIVA</th>
+                    <th style="background-color:darkgrey">ETAPA TRANSICIÓN</th>
+                    <th style="background-color:darkseagreen">FECHA DEFINICIÓN MODELO SERVICIO</th>
+                    <th style="background-color:darkseagreen">REVISIÓN DOCUMENTO DE DISEÑO</th>
+                    <th style="background-color:darkseagreen">REVISIÓN ARQUITECTURA DE SERVICIO</th>
+                    <th style="background-color: forestgreen">CERTIFICACIÓN FUNCIONAL Y TÉCNICA</th>
+                    <th style="background-color:forestgreen">CERTIFICACIÓN PASO A PRODUCCIÓN</th>
+                    <th style="background-color:forestgreen">CIERRE ESTABILIZACIÓN</th>
+                </tr>
+            </thead>
+            <tbody style="border:1px solid black">
+                @foreach (var oElemento in Model)
+                {
+                    <tr>
+                        <td>
+                            <b> @oElemento.IdProyecto </b><br />
+                            <b> @oElemento.CodProyecto </b><br />
+                            <b> @oElemento.Nombre</b> <br />
+                            <b> @oElemento.Tipo </b><br />
+                            <b><a class="" href="~/ControlProyecto/Editar/@oElemento.IdProyecto" style="color:green">Editar</a></b>
+
+                            @Html.ActionLink("Eliminar", "Eliminar", "ControlProyecto", new { id = @oElemento.IdProyecto }, new { onclick = "return confirm('Esta seguro que desea eliminar este registro?'); ",  style="color:red" })
+                        </td>
+
+                        <td>@oElemento.LiderTecnico</td>
+                        <td>@oElemento.GestorTransicion</td>  
+                        <td>@oElemento.EtapaActual</td>
+                        <td>@oElemento.EtapaTransicion</td>
+                        <td>
+                            @oElemento.DefinicionModeloServicio<br />
+                        </td>
+                        <td>
+                            @oElemento.RevisionDocumentoDiseno
+                        </td>
+
+                        <td>
+
+                            @oElemento.RevisionArquitecturaServicio
+                        </td>
+
+                        <td>
+
+                            @oElemento.CertifFuncYtec
+                        </td>
+
+                        <td>
+
+                            @oElemento.CertificacionPasoProduccion<br />
+
+                            @oElemento.TiempoAprobacionTecnica dias transcurridos desde Definicion Modelo
+                        </td>
+                        <td>
+                            @oElemento.CierreEstabilizacion<br />
+                            @oElemento.TiempoCierreEstabilizacion días transcurridos desde Certificado Paso Produccion
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th style="background-color:lightgray"><b>IdProyecto</b></th>
+                    <th style="background-color:darkgrey">Lider Técnico</th>
+                    <th style="background-color:darkgrey">Gestor Transición</th>
+                    <th style="background-color:darkgrey">Etapa Actual</th>
+                    <th style="background-color:darkgrey">Etapa Transición</th>
+                    <th style="background-color:darkseagreen">Definición Modelo de Servicio</th>
+                    <th style="background-color: darkseagreen">Revisión Documento Diseño</th>
+                    <th style="background-color:darkseagreen">Revision Arquitectura de Servicio</th>
+                    <th style="background-color:forestgreen">Certificacion Funcional y técnica</th>
+                    <th style="background-color:forestgreen">Certificación Paso Producción</th>
+                    <th style="background-color:forestgreen">Cierre Estabilización</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+@*para archivos locales
+        <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css" />
+    <script type="text/javascript" src="DataTables/datatables.min.js"></script>*@
+
+
+@*<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/b-1.6.1/b-html5-1.6.1/cr-1.5.2/kt-2.5.1/r-2.2.3/rr-1.2.6/sc-2.0.1/sl-1.3.1/datatables.min.css" />*@
+<link href="~/DataTables/datatables.css" rel="stylesheet" />
+<link href="~/DataTables/Buttons-1.6.1/css/buttons.dataTables.min.css" rel="stylesheet" />
+@section scripts{
+    <link href="~/DataTables/datatables.css" rel="stylesheet" />
+    <script src="~/DataTables/datatables.js"></script>
+    <script src="~/DataTables/Buttons-1.6.1/js/dataTables.buttons.min.js"></script>
+
+    @*<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.20/b-1.6.1/b-html5-1.6.1/cr-1.5.2/kt-2.5.1/r-2.2.3/rr-1.2.6/sc-2.0.1/sl-1.3.1/datatables.min.css" />
+        <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.20/b-1.6.1/b-html5-1.6.1/cr-1.5.2/kt-2.5.1/r-2.2.3/rr-1.2.6/sc-2.0.1/sl-1.3.1/datatables.min.js"></script>*@
+
+    <script>
+        $(document).ready(function () {
+
+            $('#proyectTabla').DataTable({
+                dom: 'Bfrtip',
+                buttons: [
+                    'copyHtml5',
+                    'excelHtml5',
+                    //'csvHtml5',
+                    'pdfHtml5',
+                    {
+                        extend: 'csv',
+                        //   extend: 'csv',
+                        text: 'Exportar csv',
+                        //text: 'Export csv',
+                        charset: 'utf-8',
+                        extension: '.csv',
+                        //fieldSeparator: ';',
+                        //fieldBoundary: '',
+                        filename: 'export',
+                        bom: true
+                    }
+                ],
+                language:
+                {
+                    "sProcessing": "Procesando...",
+                    "sLengthMenu": "Mostrar _MENU_ registros",
+                    "sZeroRecords": "No se encontraron resultados",
+                    "sEmptyTable": "Ningún dato disponible en esta tabla =(",
+                    "sInfo": "Mostrando registros del _START_ al _END_ de un total de _TOTAL_ registros",
+                    "sInfoEmpty": "Mostrando registros del 0 al 0 de un total de 0 registros",
+                    "sInfoFiltered": "(filtrado de un total de _MAX_ registros)",
+                    "sInfoPostFix": "",
+                    "sSearch": "Buscar en tabla:",
+                    "sUrl": "",
+                    "sInfoThousands": ",",
+                    "sLoadingRecords": "Cargando...",
+                    "oPaginate": {
+                        "sFirst": "Primero",
+                        "sLast": "Último",
+                        "sNext": "Siguiente",
+                        "sPrevious": "Anterior"
+                    },
+                    "oAria": {
+                        "sSortAscending": ": Activar para ordenar la columna de manera ascendente",
+                        "sSortDescending": ": Activar para ordenar la columna de manera descendente"
+                    },
+                    "buttons": {
+                        "copy": "Copiar Texto",
+                        "colvis": "Visibilidad"
+                    }
+                }
+
+            }
+
+            );
+
+        });
+
+    </script>
+
+
+
+
+
+
+}
+<script>
+    $(document).ready(function () {
+        $("#inputBusqueda").on("click", function () {
+            alert('Your Message');
+        });
+
+    });
+</script>
+
+
+<script type="text/javascript">
+    //i'm using jquery ready event which will call the javascript chunk after the page has completed loading
+    $(document).ready(function () {
+        //assuming that your variable name from the code behind is bInsertSuccess
+        var bSuccess = "<%= bInsertSuccess %>";
+        if (bSuccess) {
+            alert("Successfully Inserted");
+        }
+    });
+</script>

@@ -1,0 +1,105 @@
+﻿@model IEnumerable<ControlProyectos.Models.controlProyecto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.codProyecto)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombre)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.liderTecnico)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.gestorTransicion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.etapaActual)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.etapaTransicion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.definicionModeloServicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.revisionDocumentoDiseno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.revisionArquitecturaServicio)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.certificacionPasoProduccion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.cierreEstabilizacion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.certiFuncYtec)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.codProyecto)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombre)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.liderTecnico)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gestorTransicion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.etapaActual)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.etapaTransicion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.definicionModeloServicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.revisionDocumentoDiseno)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.revisionArquitecturaServicio)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.certificacionPasoProduccion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.cierreEstabilizacion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.certiFuncYtec)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.idProyecto }) |
+            @Html.ActionLink("Details", "Details", new { id=item.idProyecto }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.idProyecto })
+        </td>
+    </tr>
+}
+
+</table>
