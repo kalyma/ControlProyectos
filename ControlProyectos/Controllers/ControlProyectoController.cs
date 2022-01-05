@@ -596,7 +596,7 @@ namespace ControlProyectos.Controllers
                     ViewBag.mensajeNoConexion = "No es posible conectarse en este momento.";
                     return Redirect("~/ControlProyecto/Login/");
                 }
-
+                //this is message hide
 
             }
             return Redirect("~/ControlProyecto/");
